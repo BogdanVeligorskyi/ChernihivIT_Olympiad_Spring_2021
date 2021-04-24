@@ -1,5 +1,7 @@
 import csv
 
+f = open("output.txt", "w")
+
 with open('resources/data-2-1.csv', newline='') as File:
     reader = csv.reader(File)
     i = 0
@@ -125,9 +127,13 @@ with open('resources/data-2-1.csv', newline='') as File:
                         tRoom = 1
                 if tRoom == 7 and flagPoint == 0:
                     print(room)
+                    f.write(room + '\n')
                 if flagPoint == 1:
                     print(room, cP)
+                    rcp = room + " " + cP
+                    f.write(rcp + "\n")
                 count70 = 0
 
         i += 1
         count70+=1
+    f.close()
