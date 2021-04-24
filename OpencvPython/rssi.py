@@ -2,17 +2,22 @@ import csv
 
 f = open("output.txt", "w")
 
-with open('resources/data-2-1.csv', newline='') as File:
+inputFile = 'resources/data-2-6.csv'
+
+i = 0
+count70 = 0
+countTr = 0
+cntArr = 0
+room = ""
+cP = ""
+flagPoint = 0
+tRoom = 0
+B1, B2, B3, B4, B5, B6 = -100, -100, -100, -100, -100, -100
+
+with open(inputFile, newline='') as File:
     reader = csv.reader(File)
-    i = 0
-    count70 = 0
-    countTr = 0
-    cntArr = 0
-    room = ""
-    cP = ""
-    flagPoint = 0
-    tRoom = 0
-    B1, B2, B3, B4, B5, B6 = -100, -100, -100, -100, -100, -100
+
+
     for row in reader:
         if i > 0:
             point = int(row[3])
@@ -29,7 +34,6 @@ with open('resources/data-2-1.csv', newline='') as File:
                 B5 = issr
             else:
                 B6 = issr
-
 
             if count70 == 10:
                 maxP = max([B1, B2, B3, B4, B5, B6])
@@ -135,5 +139,5 @@ with open('resources/data-2-1.csv', newline='') as File:
                 count70 = 0
 
         i += 1
-        count70+=1
+        count70 += 1
     f.close()
